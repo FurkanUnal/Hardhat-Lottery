@@ -5,7 +5,7 @@ const {
 } = require("../../helper-hardhat-config");
 const { assert, expect } = require("chai");
 
-describe("Lottery Unit Tests", async () => {
+describe("Lottery Unit Tests", () => {
   let lottery, vrfCoordinatorV2Mock;
   const chainId = network.config.chainId;
 
@@ -18,7 +18,7 @@ describe("Lottery Unit Tests", async () => {
       deployer
     );
   });
-  describe("Constructor", async () => {
+  describe("Constructor", () => {
     it("Initializes the Lottery correctly", async () => {
       const lotteryState = await lottery.getLotteryState();
       const interval = await lottery.getInterval();
@@ -27,7 +27,7 @@ describe("Lottery Unit Tests", async () => {
     });
   });
 
-  describe("Enter Lottery", async () => {
+  describe("Enter Lottery", () => {
     it("Revert when you don't pay enough", async () => {
       var asd = await expect(
         lottery.enterLottery()
